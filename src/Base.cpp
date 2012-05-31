@@ -2,20 +2,15 @@
 
 Base::Base(ofxTuioObject * _tuioObject){
     //オブジェクトのIDで条件分岐
-    if(_tuioObject->getFiducialId()<){
-        index=1;
     if(_tuioObject->getFiducialId()<SAMPLE_NUM){
         FID=_tuioObject->getFiducialId();
-        sample=new Sample(_tuioObject);
+        sample.update(_tuioObject);
         index=1;//上から順番に番号をふる
     }
 
 }
 //デフォルトコンストラクタ(必ず上のコンストラクタを呼ぶこと)
-Base::Base(){
-    //必ずここでインスタンスさくせい
-    sample=new Sample();
-}
+Base::Base(){}
 
 //マーカーIDの取得
 int Base::getFid(){

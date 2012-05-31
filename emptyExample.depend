@@ -5037,11 +5037,11 @@
 	"ofxTuio.h"
 	"Base.h"
 
-1338041833 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.h
+1338426224 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.h
 	"index.h"
 	"ofxTuio.h"
 
-1338041833 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\index.h
+1338297714 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\index.h
 	"Sample.h"
 
 1311224180 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\libs\openframeworks\app\ofappglutwindow.h
@@ -5059,4 +5059,7 @@
 
 1311224152 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\addons\ofxosc\src\ofxoscbundle.cpp
 	"ofxOscBundle.h"
+
+1338426976 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.cpp
+	"Base.h"
 

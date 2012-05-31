@@ -3,10 +3,7 @@
 class Base{
     private:
     //以下にオブジェクトを追加
-<<<<<<< HEAD
-=======
         Sample sample;
->>>>>>> origin/master
         int index;
         int FID;
     public:
