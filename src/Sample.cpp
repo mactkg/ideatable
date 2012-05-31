@@ -1,8 +1,4 @@
-#include "ofxTuio.h"
-#include "ofMain.h"
-#include "Sample.h"
-#define SAMPLE_NUM 5
-
+#include "sample.h"
 Sample::Sample(ofxTuioObject * _blob):ofxTuioObject(_blob){
     default_angle=_blob->getAngle();
     radius=30;
