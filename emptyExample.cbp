@@ -144,6 +144,9 @@
 		<Unit filename="src\index.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
+		<Unit filename="src\line.cpp">
+			<Option virtualFolder="src\Obj\line\" />
+		</Unit>
 		<Unit filename="src\line.h">
 			<Option virtualFolder="src\Obj\line\" />
 		</Unit>
