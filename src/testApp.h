@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxTuio.h"
 #include "Base.h"
+#include "map"
 class testApp : public ofBaseApp{
 
 	public:
@@ -28,8 +29,9 @@ class testApp : public ofBaseApp{
         void tuioRemoved(ofxTuioCursor & tuioCursor);
         void tuioUpdated(ofxTuioCursor & tuioCursor);
     private:
-        vector<Base> objects;
-        vector<Base>::iterator obj_itr;
+        map<int,Base> objects;
+        map<int,Base>::iterator obj_itr;
+        map<int,ofxTuioCursor> cursors;
         myTuioClient tuio;
         string log;
 };

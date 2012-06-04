@@ -23,7 +23,7 @@ void testApp::update(){
 void testApp::draw(){
     obj_itr=objects.begin();
     while(obj_itr != objects.end()){
-        obj_itr->draw();
+        (*obj_itr).second.draw();
         obj_itr++;
     }
 }
@@ -74,38 +74,28 @@ void testApp::dragEvent(ofDragInfo dragInfo){
 
 void testApp::objectAdded(ofxTuioObject & tuioObject){
     const Base obj(&tuioObject);
-    objects.push_back(obj);
+    objects.insert(map<int,Base>::value_type(tuioObject.getFiducialId(),
+                                             obj));
 }
 
 void testApp::objectRemoved(ofxTuioObject & tuioObject){
-    obj_itr=objects.begin();
-    while(obj_itr!=objects.end()){
-        if(obj_itr->getFid()==tuioObject.getFiducialId()){
-            obj_itr->destroy();
-            objects.erase(obj_itr);
-            break;
-        }
-        obj_itr++;
-    }
+    objects[tuioObject.getFiducialId()].destroy();
+    objects.erase(tuioObject.getFiducialId());
 }
 
 void testApp::objectUpdated(ofxTuioObject & tuioObject){
-    obj_itr=objects.begin();
-    while(obj_itr!=objects.end()){
-        if(obj_itr->getFid()==tuioObject.getFiducialId()){
-            obj_itr->update(&tuioObject);
-        }
-        obj_itr++;
-    }
+    objects[tuioObject.getFiducialId()].update(&tuioObject);
 }
 
 void testApp::tuioAdded(ofxTuioCursor & tuioCursor){
+    cursors.insert(map<int,ofxTuioCursor>::value_type(tuioCursor.getFingerId(),
+                                                   &tuioCursor));
 }
 
 void testApp::tuioRemoved(ofxTuioCursor & tuioCursor){
-
+    cursors.erase(tuioCursor.getFingerId());
 }
 
 void testApp::tuioUpdated(ofxTuioCursor & tuioCursor){
-
+    cursors[tuioCursor.getFingerId()].update(&tuioCursor);
 }
