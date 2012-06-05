@@ -7,17 +7,27 @@ line::line(ofxTuioObject * _object, ofxTuioCursor * _cursor){
 }
 
 void line::draw(){
-    
+    if(isEnd==false)
+        ofLine(from.getX()*ofGetWidth(),
+               from.getY()*ofGetHeight(),
+               tp.getX()*ofGetWidth(),
+               tp.getY()*ofGetHeight());
+    else
+        ofLine(from.getX()*ofGetWidth(),
+               from.getY()*ofGetHeight(),
+               to.getX()*ofGetWidth(),
+               to.getY()*ofGetHeight()
+               );
 }
 
 void line::update(ofxTuioCursor * _cursor){
-    tp.update(cursor);
+    tp.update(_cursor);
 }
 
 void line::update(ofxTuioObject * _object){
-    if(_object.getFiducialId()==from.getFiducialId()){
+    if((*_object).getFiducialId()==from.getFiducialId()){
         from.update(_object);
-    }else if(_object.getFiducialID()==to.getFiducialId()){
+    }else if((*_object).getFiducialId()==to.getFiducialId()){
         to.update(_object);
     }
 }
