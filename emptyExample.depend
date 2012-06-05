@@ -5030,13 +5030,14 @@
 	"testApp.h"
 	"ofAppGlutWindow.h"
 
-1338772411 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\testapp.h
+1338900486 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\testapp.h
 	"ofMain.h"
 	"ofxTuio.h"
 	"Base.h"
+	"line.h"
 	"map"
 
-1338429128 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.h
+1338900422 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.h
 	"index.h"
 	"ofxTuio.h"
 
@@ -5059,12 +5060,13 @@
 1311224152 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\addons\ofxosc\src\ofxoscbundle.cpp
 	"ofxOscBundle.h"
 
-1338772437 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.cpp
+1338900389 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\base.cpp
 	"Base.h"
 
-1338818437 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\line.cpp
+1338899809 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\line.cpp
 	"line.h"
 
-1338818800 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\line.h
+1338899769 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\ideatable\ideatable\src\line.h
 	"ofxTuio.h"
+	"Base.h"
 

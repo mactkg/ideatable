@@ -17,33 +17,33 @@
 		<Cursor position="2628" topLine="75" />
 	</File>
 	<File name="src\Base.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="984" topLine="28" />
+		<Cursor position="1276" topLine="64" />
 	</File>
-	<File name="src\Base.h" open="0" top="0" tabpos="4">
-		<Cursor position="270" topLine="0" />
+	<File name="src\Base.h" open="0" top="0" tabpos="2">
+		<Cursor position="189" topLine="2" />
 	</File>
-	<File name="src\Sample.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="19" topLine="0" />
+	<File name="src\Sample.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="src\Sample.h" open="0" top="0" tabpos="2">
-		<Cursor position="406" topLine="0" />
+	<File name="src\Sample.h" open="0" top="0" tabpos="4">
+		<Cursor position="322" topLine="0" />
 	</File>
-	<File name="src\index.h" open="1" top="0" tabpos="3">
+	<File name="src\index.h" open="0" top="0" tabpos="3">
 		<Cursor position="97" topLine="0" />
 	</File>
-	<File name="src\line.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="1383" topLine="43" />
+	<File name="src\line.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="1418" topLine="52" />
 	</File>
-	<File name="src\line.h" open="1" top="0" tabpos="2">
-		<Cursor position="178" topLine="0" />
+	<File name="src\line.h" open="0" top="0" tabpos="2">
+		<Cursor position="212" topLine="1" />
 	</File>
 	<File name="src\main.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="71" topLine="0" />
 	</File>
 	<File name="src\testApp.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="2483" topLine="81" />
+		<Cursor position="2483" topLine="77" />
 	</File>
-	<File name="src\testApp.h" open="1" top="0" tabpos="4">
-		<Cursor position="1011" topLine="18" />
+	<File name="src\testApp.h" open="0" top="0" tabpos="3">
+		<Cursor position="73" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
