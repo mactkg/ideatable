@@ -1,12 +1,12 @@
 #include "line.h"
 
-line::line(ofxTuioObject * _object, ofxTuioCursor * _cursor){
+Line::line(ofxTuioObject * _object, ofxTuioCursor * _cursor){
     tp=*_cursor;
     from=*_object;
     isEnd=false;
 }
 
-void line::draw(){
+void Line::draw(){
     if(isEnd==false)
         ofLine(from.getX()*ofGetWidth(),
                from.getY()*ofGetHeight(),
@@ -20,11 +20,11 @@ void line::draw(){
                );
 }
 
-void line::update(ofxTuioCursor * _cursor){
+void Line::update(ofxTuioCursor * _cursor){
     tp.update(_cursor);
 }
 
-void line::update(ofxTuioObject * _object){
+void Line::update(ofxTuioObject * _object){
     if((*_object).getFiducialId()==from.getFiducialId()){
         from.update(_object);
     }else if((*_object).getFiducialId()==to.getFiducialId()){
@@ -32,28 +32,28 @@ void line::update(ofxTuioObject * _object){
     }
 }
 
-void line::update(ofxTuioObject * _object, ofxTuioCursor *_cursor){
+void Line::update(ofxTuioObject * _object, ofxTuioCursor *_cursor){
     tp.update(_cursor);
     from.update(_object);
 }
 
-void line::lineEnd(ofxTuioObject * _object){
+void Line::lineEnd(ofxTuioObject * _object){
     to.update(_object);
     isEnd=true;
 }
 
-int line::getCursorID(){
+int Line::getCursorID(){
     if(isEnd==false)
         return tp.getFingerId();
     else 
         return -1;
 }
 
-int line::getfromID(){
+int Line::getfromID(){
     return from.getFiducialId();
 }
 
-int line::getToID(){
+int Line::getToID(){
     if(isEnd==true)
         return to.getFiducialId();
     else

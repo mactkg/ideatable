@@ -28,14 +28,14 @@
 	<File name="src\Sample.h" open="0" top="0" tabpos="2">
 		<Cursor position="406" topLine="0" />
 	</File>
-	<File name="src\index.h" open="0" top="0" tabpos="2">
+	<File name="src\index.h" open="1" top="0" tabpos="3">
 		<Cursor position="97" topLine="0" />
 	</File>
-	<File name="src\line.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="0" topLine="0" />
+	<File name="src\line.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1383" topLine="43" />
 	</File>
-	<File name="src\line.h" open="1" top="1" tabpos="2">
-		<Cursor position="169" topLine="0" />
+	<File name="src\line.h" open="1" top="0" tabpos="2">
+		<Cursor position="178" topLine="0" />
 	</File>
 	<File name="src\main.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="71" topLine="0" />
@@ -43,7 +43,7 @@
 	<File name="src\testApp.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="2483" topLine="81" />
 	</File>
-	<File name="src\testApp.h" open="0" top="0" tabpos="2">
-		<Cursor position="129" topLine="0" />
+	<File name="src\testApp.h" open="1" top="0" tabpos="4">
+		<Cursor position="1011" topLine="18" />
 	</File>
 </CodeBlocks_layout_file>

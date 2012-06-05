@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxTuio.h"
 #include "Base.h"
+#include "line.h"
 #include "map"
 class testApp : public ofBaseApp{
 
@@ -32,6 +33,7 @@ class testApp : public ofBaseApp{
         map<int,Base> objects;
         map<int,Base>::iterator obj_itr;
         map<int,ofxTuioCursor> cursors;
+        map<int,int,Line> lines;
         myTuioClient tuio;
         string log;
 };

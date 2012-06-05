@@ -2,7 +2,7 @@
 #define LINE_H_INCLUDED
 #include "ofxTuio.h"
 //オブジェクトとオブジェクトをつなぐ名状しがたいパスのようなもの.h
-class line{
+class Line{
     public:
     //こんすとらくたぁ
         line(){};
