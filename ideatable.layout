@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="debug" />
+	<File name="..\..\..\addons\ofxTuio\src\ofxTuio.h" open="0" top="0" tabpos="8">
+		<Cursor position="1128" topLine="11" />
+	</File>
+	<File name="..\..\..\addons\ofxTuio\src\ofxTuioClient.h" open="0" top="0" tabpos="2">
+		<Cursor position="8898" topLine="246" />
+	</File>
+	<File name="..\..\..\addons\ofxTuio\src\ofxTuioContainer.h" open="0" top="0" tabpos="4">
+		<Cursor position="1239" topLine="22" />
+	</File>
+	<File name="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" open="0" top="0" tabpos="1">
+		<Cursor position="1529" topLine="32" />
+	</File>
+	<File name="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" open="0" top="0" tabpos="3">
+		<Cursor position="2628" topLine="75" />
+	</File>
+	<File name="src\Base.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1276" topLine="64" />
+	</File>
+	<File name="src\Base.h" open="0" top="0" tabpos="2">
+		<Cursor position="189" topLine="2" />
+	</File>
+	<File name="src\Sample.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src\Sample.h" open="0" top="0" tabpos="4">
+		<Cursor position="322" topLine="0" />
+	</File>
+	<File name="src\index.h" open="0" top="0" tabpos="3">
+		<Cursor position="97" topLine="0" />
+	</File>
+	<File name="src\line.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="1418" topLine="52" />
+	</File>
+	<File name="src\line.h" open="0" top="0" tabpos="2">
+		<Cursor position="212" topLine="1" />
+	</File>
+	<File name="src\main.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="71" topLine="0" />
+	</File>
+	<File name="src\testApp.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="2483" topLine="77" />
+	</File>
+	<File name="src\testApp.h" open="0" top="0" tabpos="3">
+		<Cursor position="73" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
