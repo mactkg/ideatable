@@ -3,13 +3,13 @@
 #include "ofxTuio.h"
 #include "Base.h"
 //オブジェクトとオブジェクトをつなぐ名状しがたいパスのようなもの.h
-class Line
+class objLine
 {
 public:
     //こんすとらくたぁ
-    Line() {};
-    Line(ofxTuioObject * _object,ofxTuioCursor * _cursor);
-    ~Line() {};
+    objLine() {};
+    objLine(ofxTuioObject * _object,ofxTuioCursor * _cursor);
+    ~objLine() {};
     //描画はこれだけ呼べばおｋ
     void draw();
     //関連するObject,Cursorが変更されたら必ず呼ぶ

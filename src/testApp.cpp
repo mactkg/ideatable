@@ -94,7 +94,6 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 
 void testApp::objectRemoved(ofxTuioObject & tuioObject)
 {
-    objects[tuioObject.getFiducialId()].destroy();
     objects.erase(tuioObject.getFiducialId());
 }
 
@@ -105,6 +104,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 
 void testApp::tuioAdded(ofxTuioCursor & tuioCursor)
 {
+    const fingerCursor finger(&tuioCursor);
     cursors.insert(map<int,ofxTuioCursor>::value_type(tuioCursor.getFingerId(),
                    &tuioCursor));
 }

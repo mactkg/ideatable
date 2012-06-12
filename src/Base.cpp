@@ -66,18 +66,7 @@ void Base::touchAction(ofxTuioCursor * _tuioCursor)
     switch(index)
     {
     case 1:
-        sample.isRange(_tuioCursor);
-        break;
-    }
-}
-
-//Á‹ˆ—
-void Base::destroy()
-{
-    switch(index)
-    {
-    case 1:
-        sample.destroy();
+        sample.touch(_tuioCursor);
         break;
     }
 }
