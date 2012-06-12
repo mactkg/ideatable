@@ -9,10 +9,10 @@ private:
     float radius;
 public:
     Sample(ofxTuioObject * _blob);
-    Sample();
+    Sample(){};
+    ~Sample(){};
     void draw();
     void update(ofxTuioObject * _blob);
-    void destroy();
-    void isRange(ofxTuioCursor * _cursor);
+    void touch(ofxTuioCursor * _cursor);
 };
 

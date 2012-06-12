@@ -5,10 +5,6 @@ Sample::Sample(ofxTuioObject * _blob):ofxTuioObject(_blob)
     radius=30;
 }
 
-Sample::Sample()
-{
-}
-
 void Sample::draw()
 {
     ofSetColor(255,130,0);
@@ -26,10 +22,7 @@ void Sample::update(ofxTuioObject * _tuioObject)
     radius=5+abs(this->angle*5);
 }
 
-void Sample::destroy()
-{
-}
 
-void Sample::isRange(ofxTuioCursor * _tuioCursor)
+void Sample::touch(ofxTuioCursor * _tuioCursor)
 {
 }
