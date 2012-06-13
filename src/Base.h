@@ -1,23 +1,22 @@
 #pragma once
 #include "index.h"
 #include "ofxTuio.h"
-class Base
-{
+class Base {
 private:
-    //以下にオブジェクトを追加
+    //莉･荳九↓繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ霑ｽ蜉
     Sample sample;
     int index;
     int FID;
     float x,y;
 public:
     Base(ofxTuioObject * _tuioObject);
-    Base(){};
-    ~Base(){};
+    Base() {};
+    ~Base() {};
     int getFiducialId();
     float getX();
     float getY();
     void draw();
     void update(ofxTuioObject * _tuioObject);
-    void touchAction(ofxTuioCursor * _tuioCursor);
+    bool touchAction(ofxTuioCursor * _tuioCursor);
     void destroy();
 };

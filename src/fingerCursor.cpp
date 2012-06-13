@@ -1,36 +1,38 @@
 #include "fingerCursor.h"
 
-int fingerCursor::getState()
-{
+fingerCursor::fingerCursor(ofxTuioCursor * _cursor,bool position):ofxTuioCursor(_cursor){
+    if(position==true)
+        state=CURSOR_ACTIVE;
+    else
+        state=CURSOR_PASSIVE;
+}
+
+int fingerCursor::getState() {
     return state;
 }
 
-string fingerCursor::changeState(bool position)
-{
-    if(state==ACTIVE){
-        if(position==true){
-            return "drawobj";
-        }else{
-            state=LINE;
+string fingerCursor::changeState(bool position) {
+    if(state==CURSOR_ACTIVE) {
+        if(position==false) {
+            state=CURSOR_ON_LINE;
             return "makeline";
         }
+        return "drawobj";
     }
-    
-    if(state==LINE){
-        if(position==true){
-            state=ACTIVE;
+
+    if(state==CURSOR_ON_LINE) {
+        if(position==true) {
+            state=CURSOR_ACTIVE;
             return "lineend";
-        }else{
-            return "drawline";
         }
+        return "drawline";
     }
-    
-    if(state==PASSIVE){
-        if(position==true){
-            state=ACTIVE;
+
+    if(state==CURSOR_PASSIVE) {
+        if(position==true) {
+            state=CURSOR_ACTIVE;
             return "drawobj";
-        }else{
-            return "none";
         }
+        return "none";
     }
 }

@@ -1,12 +1,10 @@
 #include "sample.h"
-Sample::Sample(ofxTuioObject * _blob):ofxTuioObject(_blob)
-{
+Sample::Sample(ofxTuioObject * _blob):ofxTuioObject(_blob) {
     default_angle=_blob->getAngle();
     radius=30;
 }
 
-void Sample::draw()
-{
+void Sample::draw() {
     ofSetColor(255,130,0);
     glPushMatrix();
     glTranslatef(this->getX()*ofGetWidth(),
@@ -16,13 +14,12 @@ void Sample::draw()
     glPopMatrix();
 }
 
-void Sample::update(ofxTuioObject * _tuioObject)
-{
+void Sample::update(ofxTuioObject * _tuioObject) {
     ofxTuioObject::update(_tuioObject);
     radius=5+abs(this->angle*5);
 }
 
 
-void Sample::touch(ofxTuioCursor * _tuioCursor)
-{
+bool Sample::touch(ofxTuioCursor * _tuioCursor) {
+    return false;
 }

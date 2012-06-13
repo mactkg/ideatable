@@ -1,14 +1,12 @@
 #include "line.h"
 
-objLine::objLine(ofxTuioObject * _object, ofxTuioCursor * _cursor)
-{
+objLine::objLine(ofxTuioObject * _object, ofxTuioCursor * _cursor) {
     tp=*_cursor;
     from.update(_object);
     isEnd=false;
 }
 
-void objLine::draw()
-{
+void objLine::draw() {
     if(isEnd==false)
         ofLine(from.getX()*ofGetWidth(),
                from.getY()*ofGetHeight(),
@@ -22,55 +20,44 @@ void objLine::draw()
               );
 }
 
-void objLine::update(ofxTuioCursor * _cursor)
-{
+void objLine::update(ofxTuioCursor * _cursor) {
     tp.update(_cursor);
 }
 
-void objLine::update(ofxTuioObject * _object)
-{
-    if((*_object).getFiducialId()==from.getFiducialId())
-    {
+void objLine::update(ofxTuioObject * _object) {
+    if((*_object).getFiducialId()==from.getFiducialId()) {
         from.update(_object);
-    }
-    else if((*_object).getFiducialId()==to.getFiducialId())
-    {
+    } else if((*_object).getFiducialId()==to.getFiducialId()) {
         to.update(_object);
     }
 }
 
-void objLine::update(ofxTuioObject * _object, ofxTuioCursor *_cursor)
-{
+void objLine::update(ofxTuioObject * _object, ofxTuioCursor *_cursor) {
     tp.update(_cursor);
     from.update(_object);
 }
 
-void objLine::lineEnd(ofxTuioObject * _object)
-{
+void objLine::lineEnd(ofxTuioObject * _object) {
     to.update(_object);
     isEnd=true;
 }
 
-int objLine::getCursorID()
-{
+int objLine::getCursorID() {
     if(isEnd==false)
         return tp.getFingerId();
     else
         return -1;
 }
 
-int objLine::getfromID()
-{
+int objLine::getfromID() {
     return from.getFiducialId();
 }
 
-int objLine::getToID()
-{
+int objLine::getToID() {
     if(isEnd==true)
         return to.getFiducialId();
     else
         return -1;
 }
-bool touchAction(ofxTuioCursor * _cursor)
-{
+bool touchAction(ofxTuioCursor * _cursor) {
 }

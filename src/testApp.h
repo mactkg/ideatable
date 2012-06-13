@@ -6,8 +6,8 @@
 #include "line.h"
 #include "fingerCursor.h"
 #include "map"
-class testApp : public ofBaseApp
-{
+#include "string"
+class testApp : public ofBaseApp {
 
 public:
     void setup();
@@ -36,6 +36,7 @@ private:
     map<int,Base>::iterator obj_itr;
     map<int,fingerCursor> cursors;
     vector<objLine> lines;
+    vector<objLine>::iterator line_itr;
     myTuioClient tuio;
     string log;
 };

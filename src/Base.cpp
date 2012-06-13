@@ -1,73 +1,60 @@
 #include "Base.h"
-/*TuioObject‚Ìƒ‰ƒbƒp[‚Å‚·B
-‘‚«•û‚Ísrc/Sample.cpp‚ğQl‚É‚µ‚Ä‚­‚¾‚µ‚ 
+/*TuioObjectã®ãƒ©ãƒƒãƒ‘ãƒ¼ã§ã™ã€‚
+æ›¸ãæ–¹ã¯src/Sample.cppã‚’å‚è€ƒã«ã—ã¦ãã ã—ã‚
 */
-Base::Base(ofxTuioObject * _tuioObject)
-{
-    //ƒIƒuƒWƒFƒNƒg‚ÌID‚ÅğŒ•ªŠò
+Base::Base(ofxTuioObject * _tuioObject) {
+    //ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®IDã§æ¡ä»¶åˆ†å²
     x=_tuioObject->getX();
     y=_tuioObject->getY();
-    if(_tuioObject->getFiducialId()<SAMPLE_NUM)
-    {
+    if(_tuioObject->getFiducialId()<SAMPLE_NUM) {
         FID=_tuioObject->getFiducialId();
         sample.update(_tuioObject);
-        index=1;//ã‚©‚ç‡”Ô‚É”Ô†‚ğ‚Ó‚é
+        index=1;//ä¸Šã‹ã‚‰é †ç•ªã«ç•ªå·ã‚’ãµã‚‹
     }
-
 }
 
-//ƒ}[ƒJ[ID‚Ìæ“¾
-int Base::getFiducialId()
-{
+//ãƒãƒ¼ã‚«ãƒ¼IDã®å–å¾—
+int Base::getFiducialId() {
     return FID;
 }
 
-//•`‰æˆ—
-void Base::draw()
-{
-    //index‚ÉU‚è•ª‚¯‚½”Ô†‚Å‚»‚ÌƒIƒuƒWƒFƒNƒg‚Ìdraw()‚ğŒÄ‚Ô
-    switch(index)
-    {
+//æç”»å‡¦ç†
+void Base::draw() {
+    //indexã«æŒ¯ã‚Šåˆ†ã‘ãŸç•ªå·ã§ãã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®draw()ã‚’å‘¼ã¶
+    switch(index) {
     case 1:
         sample.draw();
         break;
     }
 }
 
-//ó‘Ô‚ÌXV
-void Base::update(ofxTuioObject * _tuioObject)
-{
+//çŠ¶æ…‹ã®æ›´æ–°
+void Base::update(ofxTuioObject * _tuioObject) {
     x=_tuioObject->getX();
     y=_tuioObject->getY();
-    //draw()‚Æ“¯—l‚É
-    switch(index)
-    {
+    //draw()ã¨åŒæ§˜ã«
+    switch(index) {
     case 1:
         sample.update(_tuioObject);
         break;
     }
 }
 
-//XÀ•W‚Ìæ“¾
-float Base::getX()
-{
+//Xåº§æ¨™ã®å–å¾—
+float Base::getX() {
     return x;
 }
 
-//YÀ•W‚Ìæ“¾
-float Base::getY()
-{
+//Yåº§æ¨™ã®å–å¾—
+float Base::getY() {
     return y;
 }
 
-//ƒ^ƒbƒ`”»’è
-void Base::touchAction(ofxTuioCursor * _tuioCursor)
-{
-    switch(index)
-    {
+//ã‚¿ãƒƒãƒåˆ¤å®š
+bool Base::touchAction(ofxTuioCursor * _tuioCursor) {
+    switch(index) {
     case 1:
-        sample.touch(_tuioCursor);
-        break;
+        return sample.touch(_tuioCursor);
     }
 }
 

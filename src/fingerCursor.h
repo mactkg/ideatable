@@ -2,15 +2,14 @@
 #define FINGERCURSOR_H_INCLUDED
 #include "ofxTuio.h"
 #include "string.h"
-#define ACTIVE 1
-#define LINE 0
-#define PASSIVE -1
-class fingerCursor : public ofxTuioCursor
-{
+#define CURSOR_ACTIVE 1
+#define CURSOR_ON_LINE 0
+#define CURSOR_PASSIVE -1
+class fingerCursor : public ofxTuioCursor {
 public:
-    fingerCursor(ofxTuioCursor * _blob):ofxTuioCursor(_blob){};
-    fingerCursor(){};
-    ~fingerCursor(){};
+    fingerCursor(ofxTuioCursor * _cursor,bool position);
+    fingerCursor() {};
+    ~fingerCursor() {};
     int getState();
     string changeState(bool position);
 private:
