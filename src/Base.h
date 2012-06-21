@@ -1,5 +1,6 @@
 #pragma once
 #include "index.h"
+#include "fingerCursor.h"
 #include "ofxTuio.h"
 class Base {
 private:
@@ -17,6 +18,8 @@ public:
     float getY();
     void draw();
     void update(ofxTuioObject * _tuioObject);
-    bool touchAction(ofxTuioCursor * _tuioCursor);
+    bool isInRange(ofxTuioCursor * _tuioCursor);
+    bool isInRange(fingerCursor * _cursor);
+    void touchAction(fingerCursor * _cursor);
     void destroy();
 };

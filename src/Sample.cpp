@@ -5,7 +5,7 @@ Sample::Sample(ofxTuioObject * _blob):ofxTuioObject(_blob) {
 }
 
 void Sample::draw() {
-    ofSetColor(255,130,0);
+    ofSetColor(0,130,130);
     glPushMatrix();
     glTranslatef(this->getX()*ofGetWidth(),
                  this->getY()*ofGetHeight(),
@@ -20,6 +20,13 @@ void Sample::update(ofxTuioObject * _tuioObject) {
 }
 
 
-bool Sample::touch(ofxTuioCursor * _tuioCursor) {
+bool Sample::isInRange(ofxTuioCursor * _cursor) {
     return false;
+}
+
+bool Sample::isInRange(fingerCursor *_cursor){
+    return false;
+}
+
+void Sample::touchAction(fingerCursor * _cursor){
 }

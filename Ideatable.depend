@@ -5084,22 +5084,24 @@
 	"ofImage.h"
 	"ofVideoPlayer.h"
 
-1339511513 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\sample.cpp
+1340264842 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\sample.cpp
 	"sample.h"
 
-1339511507 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\sample.h
+1340264593 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\sample.h
 	"ofxTuio.h"
 	"ofMain.h"
+	"fingerCursor.h"
 
-1339504096 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\line.cpp
+1340284169 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\line.cpp
 	"line.h"
 
-1339485073 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\line.h
+1340284171 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\line.h
 	"ofxTuio.h"
 	"Base.h"
 
-1339511462 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\base.h
+1340264597 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\base.h
 	"index.h"
+	"fingerCursor.h"
 	"ofxTuio.h"
 
 1339301773 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\index.h
@@ -5110,7 +5112,7 @@
 	"testApp.h"
 	"ofAppGlutWindow.h"
 
-1339511678 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\testapp.h
+1340266719 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\testapp.h
 	"ofMain.h"
 	"ofxTuio.h"
 	"Base.h"
@@ -5119,10 +5121,10 @@
 	"map"
 	"string"
 
-1339490605 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\testapp.cpp
+1340266724 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\testapp.cpp
 	"testApp.h"
 
-1339511524 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\base.cpp
+1340264587 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\base.cpp
 	"Base.h"
 
 1339485073 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\picture.cpp
@@ -5134,10 +5136,10 @@
 	"string.h"
 	<iostream>
 
-1339511554 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\fingercursor.h
+1340265283 c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\fingercursor.h
 	"ofxTuio.h"
 	"string.h"
 
-1339511588 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\fingercursor.cpp
+1340265492 source:c:\users\mas.ri\documents\of_prerelease_v007_win_cb\apps\myapps\ideatable\src\fingercursor.cpp
 	"fingerCursor.h"
 

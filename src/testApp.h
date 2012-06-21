@@ -39,4 +39,5 @@ private:
     vector<objLine>::iterator line_itr;
     myTuioClient tuio;
     string log;
+    bool showLogFlag;
 };

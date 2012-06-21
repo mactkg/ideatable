@@ -8,25 +8,25 @@ class objLine
 public:
     //こんすとらくたぁ
     objLine() {};
-    objLine(ofxTuioObject * _object,ofxTuioCursor * _cursor);
+    objLine(ofxTuioObject * _object,fingerCursor * _cursor);
     ~objLine() {};
     //描画はこれだけ呼べばおｋ
     void draw();
     //関連するObject,Cursorが変更されたら必ず呼ぶ
-    void update(ofxTuioCursor * _cursor);
+    void update(fingerCursor * _cursor);
     void update(ofxTuioObject * _object);
-    void update(ofxTuioObject * _object, ofxTuioCursor * _cursor);
+    void update(ofxTuioObject * _object, fingerCursor * _cursor);
     //pathの開通
     void lineEnd(ofxTuioObject * _object);
     //pathの消去、アクションの検知
-    bool touchAction(ofxTuioCursor * _cursor);
+    bool touchAction(fingerCursor * _cursor);
     //好きにして…
-    int getfromID();
+    int getFromID();
     int getToID();
     int getCursorID();
 private:
     Base from,to;
-    ofxTuioCursor tp;
+    fingerCursor tp;
     bool isEnd;
 };
 #endif // LINE_H_INCLUDED

@@ -11,28 +11,28 @@ int fingerCursor::getState() {
     return state;
 }
 
-string fingerCursor::changeState(bool position) {
+int fingerCursor::changeState(bool position) {
     if(state==CURSOR_ACTIVE) {
         if(position==false) {
             state=CURSOR_ON_LINE;
-            return "makeline";
+            return makeline;
         }
-        return "drawobj";
+        return drawobj;
     }
 
     if(state==CURSOR_ON_LINE) {
         if(position==true) {
             state=CURSOR_ACTIVE;
-            return "lineend";
+            return lineend;
         }
-        return "drawline";
+        return drawline;
     }
 
     if(state==CURSOR_PASSIVE) {
         if(position==true) {
             state=CURSOR_ACTIVE;
-            return "drawobj";
+            return drawobj;
         }
-        return "none";
+        return none;
     }
 }

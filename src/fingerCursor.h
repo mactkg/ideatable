@@ -5,13 +5,19 @@
 #define CURSOR_ACTIVE 1
 #define CURSOR_ON_LINE 0
 #define CURSOR_PASSIVE -1
+#define drawobj 1
+#define drawline 2
+#define makeline 3
+#define lineend 4
+#define none 0
+
 class fingerCursor : public ofxTuioCursor {
 public:
     fingerCursor(ofxTuioCursor * _cursor,bool position);
     fingerCursor() {};
     ~fingerCursor() {};
     int getState();
-    string changeState(bool position);
+    int changeState(bool position);
 private:
     int state;
 };
