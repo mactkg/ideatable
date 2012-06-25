@@ -1,8 +1,8 @@
 #include "line.h"
 
-objLine::objLine(ofxTuioObject * _object, fingerCursor * _cursor) {
+objLine::objLine(Base * _object, fingerCursor * _cursor) {
     tp=*_cursor;
-    from.update(_object);
+    from=(*_object);
     isEnd=false;
 }
 

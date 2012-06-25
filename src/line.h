@@ -8,7 +8,7 @@ class objLine
 public:
     //こんすとらくたぁ
     objLine() {};
-    objLine(ofxTuioObject * _object,fingerCursor * _cursor);
+    objLine(Base * _object,fingerCursor * _cursor);
     ~objLine() {};
     //描画はこれだけ呼べばおｋ
     void draw();

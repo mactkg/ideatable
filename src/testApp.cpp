@@ -155,24 +155,32 @@ void testApp::tuioRemoved(ofxTuioCursor & tuioCursor) {
 void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     cursors[tuioCursor.getFingerId()].update(&tuioCursor);
     bool flag=false;
+    int oId,loId;
     //Objectの範囲内にあるかのチェック
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++){
         if((*obj_itr).second.isInRange(&tuioCursor)==true){
             flag=true;
+            Id=(*obj_itr).second.getFiducialId();
             break;
         }
     }
     //stateを変更しコマンド取得
     int command=cursors[tuioCursor.getFingerId()].changeState(flag);
     
+    for(line_itr=lines.begin();line_itr!=lines.end();++line_itr){
+        if((*line_itr).getCursorID==tuioCursor.getFingerId()){
+            loId=(*line_itr).getFromID();
+            break;
+        }
+    }
     if(command==makeline){//Line作成
-    
+        objLine l(&(*obj_itr).second,&cursors[tuioCursor.getFingerId()]);
+        lines.push_back(l);
     } else if(command==drawobj) {//Objectのタッチアクション
-    
+        objects[Id].touchAction(&cursors[tuioCursor.getFingerId()]);
     } else if(command==drawline) {//Lineの描画
-    
+        
     } else if(command==lineend) {//Line終端処理
-    
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+
