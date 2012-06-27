@@ -21,7 +21,9 @@ void Sample::update(ofxTuioObject * _tuioObject) {
 
 
 bool Sample::isInRange(ofxTuioCursor * _cursor) {
-    return false;
+    float dist=sqrt(pow(_cursor.getX()*ofGetWidth()-this.xpos*ofGetWidth(),2)
+                    +pow(_cursor.getY()*ofGetHeight()-this.ypos,2));
+    if(dist)
 }
 
 bool Sample::isInRange(fingerCursor *_cursor){
