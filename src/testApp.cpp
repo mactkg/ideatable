@@ -160,7 +160,7 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++){
         if((*obj_itr).second.isInRange(&tuioCursor)==true){
             flag=true;
-            Id=(*obj_itr).second.getFiducialId();
+            oId=(*obj_itr).second.getFiducialId();
             break;
         }
     }
@@ -168,19 +168,20 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     int command=cursors[tuioCursor.getFingerId()].changeState(flag);
     
     for(line_itr=lines.begin();line_itr!=lines.end();++line_itr){
-        if((*line_itr).getCursorID==tuioCursor.getFingerId()){
+        if((*line_itr).getCursorID()==tuioCursor.getFingerId()){
             loId=(*line_itr).getFromID();
             break;
         }
     }
     if(command==makeline){//Line作成
-        objLine l(&(*obj_itr).second,&cursors[tuioCursor.getFingerId()]);
+        objLine l(&(*obj_itr).second.getObject(),&tuioCursor);
         lines.push_back(l);
     } else if(command==drawobj) {//Objectのタッチアクション
-        objects[Id].touchAction(&cursors[tuioCursor.getFingerId()]);
+        objects[oId].touchAction(&tuioCursor);
     } else if(command==drawline) {//Lineの描画
-        
+        (*line_itr).update(&tuioCursor);
     } else if(command==lineend) {//Line終端処理
+        (*line_itr).lineEnd(&objects[oId].getObject());
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+

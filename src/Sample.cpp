@@ -28,5 +28,5 @@ bool Sample::isInRange(fingerCursor *_cursor){
     return false;
 }
 
-void Sample::touchAction(fingerCursor * _cursor){
+void Sample::touchAction(ofxTuioCursor * _cursor){
 }

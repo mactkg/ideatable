@@ -1,8 +1,8 @@
 #include "line.h"
 
-objLine::objLine(Base * _object, fingerCursor * _cursor) {
-    tp=*_cursor;
-    from=(*_object);
+objLine::objLine(ofxTuioObject * _object, ofxTuioCursor * _cursor) {
+    tp.update(_cursor);
+    from.update(_object);
     isEnd=false;
 }
 
@@ -20,7 +20,7 @@ void objLine::draw() {
               );
 }
 
-void objLine::update(fingerCursor * _cursor) {
+void objLine::update(ofxTuioCursor * _cursor) {
     tp.update(_cursor);
 }
 
@@ -32,7 +32,7 @@ void objLine::update(ofxTuioObject * _object) {
     }
 }
 
-void objLine::update(ofxTuioObject * _object, fingerCursor *_cursor) {
+void objLine::update(ofxTuioObject * _object, ofxTuioCursor *_cursor) {
     tp.update(_cursor);
     from.update(_object);
 }
