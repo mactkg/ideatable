@@ -11,6 +11,13 @@ int fingerCursor::getState() {
     return state;
 }
 
+void fingerCursor::setObject(ofxTuioObject * _object){
+    buf.update(_object);
+}
+
+ofxTuioObject fingerCursor::getLatestObject(){
+    return buf;
+}
 int fingerCursor::changeState(bool position) {
     if(state==CURSOR_ACTIVE) {
         if(position==false) {

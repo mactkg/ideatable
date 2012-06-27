@@ -18,7 +18,10 @@ public:
     ~fingerCursor() {};
     int getState();
     int changeState(bool position);
+    void setObject(ofxTuioObject * _object);
+    ofxTuioObject getLatestObject();
 private:
     int state;
+    ofxTuioObject buf;
 };
 #endif // FINGERCURSOR_H_INCLUDED

@@ -174,14 +174,16 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
         }
     }
     if(command==makeline){//Line作成
-        objLine l(&(*obj_itr).second.getObject(),&tuioCursor);
+        objLine l(&cursors[tuioCursor.getFingerId()].getLatestObject(),
+                  &tuioCursor);
         lines.push_back(l);
     } else if(command==drawobj) {//Objectのタッチアクション
         objects[oId].touchAction(&tuioCursor);
+        cursors[tuioCursor.getFingerId()].setObject(&objects[oId].getObject());
     } else if(command==drawline) {//Lineの描画
         (*line_itr).update(&tuioCursor);
     } else if(command==lineend) {//Line終端処理
-        (*line_itr).lineEnd(&objects[oId].getObject());
+        (*line_itr).lineEnd(&cursors[tuioCursor.getFingerId()].getLatestObject());
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+
