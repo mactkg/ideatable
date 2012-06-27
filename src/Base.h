@@ -20,6 +20,7 @@ public:
     void update(ofxTuioObject * _tuioObject);
     bool isInRange(ofxTuioCursor * _tuioCursor);
     bool isInRange(fingerCursor * _cursor);
-    void touchAction(fingerCursor * _cursor);
+    void touchAction(ofxTuioCursor * _cursor);
     void destroy();
+    ofxTuioObject getObject();
 };

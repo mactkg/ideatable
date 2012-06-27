@@ -65,10 +65,20 @@ bool Base::isInRange(fingerCursor * _cursor){
     }
 }
 
-void Base::touchAction(fingerCursor * _cursor){
+void Base::touchAction(ofxTuioCursor * _cursor){
     switch(index) {
     case 1:
         sample.touchAction(_cursor);
     }
 }
 
+ofxTuioObject Base::getObject(){
+    switch(index){
+        case 1:
+            return ofxTuioObject(sample.getSessionId(),
+                                 sample.getFiducialId(),
+                                 sample.getX(),
+                                 sample.getY(),
+                                 sample.getAngle());
+    }
+}
