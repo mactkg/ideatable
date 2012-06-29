@@ -1,34 +1,42 @@
 #include "sample.h"
 Sample::Sample(ofxTuioObject * _blob):ofxTuioObject(_blob) {
     default_angle=_blob->getAngle();
-    radius=30;
+    r=(float)ofRandom(256);
+    g=(float)ofRandom(256);
+    b=(float)ofRandom(256);
 }
 
 void Sample::draw() {
-    ofSetColor(0,130,130);
+    ofSetColor(r,g,b);
     glPushMatrix();
     glTranslatef(this->getX()*ofGetWidth(),
                  this->getY()*ofGetHeight(),
                  0.0);
-    ofCircle(0,0,radius);
+    ofCircle(0,0,30);
+    ofRect(30,-30,15,15);
     glPopMatrix();
 }
 
 void Sample::update(ofxTuioObject * _tuioObject) {
     ofxTuioObject::update(_tuioObject);
-    radius=5+abs(this->angle*5);
 }
 
 
 bool Sample::isInRange(ofxTuioCursor * _cursor) {
-    float dist=sqrt(pow(_cursor.getX()*ofGetWidth()-this.xpos*ofGetWidth(),2)
-                    +pow(_cursor.getY()*ofGetHeight()-this.ypos,2));
-    if(dist)
+    if(sumdist(_cursor->getX(),_cursor->getY()<30.0))return true;
+    return false;
 }
 
 bool Sample::isInRange(fingerCursor *_cursor){
+    if(sumdist(_cursor->getX(),_cursor->getY()<30.0))return true;
     return false;
 }
 
 void Sample::touchAction(ofxTuioCursor * _cursor){
+    
+}
+
+float Sample::sumdist(float x,float y){
+    return sqrt(pow(x*ofGetWidth()-this->xpos*ofGetWidth(),2)
+                    +pow(y*ofGetHeight()-this->ypos*ofGetHeight(),2));
 }

@@ -173,8 +173,9 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
             break;
         }
     }
+    fingerCursor f=cursors[tuioCursor.getFingerId()];
     if(command==makeline){//Line作成
-        objLine l(&cursors[tuioCursor.getFingerId()].getLatestObject(),
+        objLine l(&f.getLatestObject(),
                   &tuioCursor);
         lines.push_back(l);
     } else if(command==drawobj) {//Objectのタッチアクション

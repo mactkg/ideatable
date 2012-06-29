@@ -130,10 +130,10 @@
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
 		<Unit filename="src\Base.cpp">
-			<Option virtualFolder="src\core\" />
+			<Option virtualFolder="src\Obj\" />
 		</Unit>
 		<Unit filename="src\Base.h">
-			<Option virtualFolder="src\core\" />
+			<Option virtualFolder="src\Obj\" />
 		</Unit>
 		<Unit filename="src\Sample.cpp">
 			<Option virtualFolder="src\Obj\sample\" />
