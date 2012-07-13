@@ -144,12 +144,6 @@
 		<Unit filename="src\fileUtility.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
-		<Unit filename="src\fingerCursor.cpp">
-			<Option virtualFolder="src\core\" />
-		</Unit>
-		<Unit filename="src\fingerCursor.h">
-			<Option virtualFolder="src\core\" />
-		</Unit>
 		<Unit filename="src\index.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>

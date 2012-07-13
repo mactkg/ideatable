@@ -58,13 +58,6 @@ bool Base::isInRange(ofxTuioCursor * _tuioCursor) {
     }
 }
 
-bool Base::isInRange(fingerCursor * _cursor){
-    switch(index) {
-    case 1:
-        return sample.isInRange(_cursor);
-    }
-}
-
 void Base::touchAction(ofxTuioCursor * _cursor){
     switch(index) {
     case 1:

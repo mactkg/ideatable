@@ -59,5 +59,3 @@ int objLine::getToID() {
     else
         return -1;
 }
-bool touchAction(ofxTuioCursor * _cursor) {
-}

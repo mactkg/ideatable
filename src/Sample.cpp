@@ -27,11 +27,6 @@ bool Sample::isInRange(ofxTuioCursor * _cursor) {
     return false;
 }
 
-bool Sample::isInRange(fingerCursor *_cursor){
-    if(sumdist(_cursor->getX(),_cursor->getY()<30.0))return true;
-    return false;
-}
-
 void Sample::touchAction(ofxTuioCursor * _cursor){
     
 }

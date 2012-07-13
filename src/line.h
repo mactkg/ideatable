@@ -18,8 +18,6 @@ public:
     void update(ofxTuioObject * _object, ofxTuioCursor * _cursor);
     //pathの開通
     void lineEnd(ofxTuioObject * _object);
-    //pathの消去、アクションの検知
-    bool touchAction(fingerCursor * _cursor);
     //好きにして…
     int getFromID();
     int getToID();
