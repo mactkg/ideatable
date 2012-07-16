@@ -21,8 +21,12 @@ void Sample::update(ofxTuioObject * _tuioObject) {
     ofxTuioObject::update(_tuioObject);
 }
 
+bool Sample::isActionRange(ofxTuioCursor * _cursor) {
+    if(sumdist(_cursor->getX(),_cursor->getY()<25.0))return true;
+    return false;
+}
 
-bool Sample::isInRange(ofxTuioCursor * _cursor) {
+bool Sample::isRange(ofxTuioCursor * _cursor) {
     if(sumdist(_cursor->getX(),_cursor->getY()<30.0))return true;
     return false;
 }

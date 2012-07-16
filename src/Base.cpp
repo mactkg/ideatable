@@ -51,10 +51,17 @@ float Base::getY() {
 }
 
 //タッチ判定
-bool Base::isInRange(ofxTuioCursor * _tuioCursor) {
+bool Base::isActionRange(ofxTuioCursor * _tuioCursor) {
     switch(index) {
     case 1:
-        return sample.isInRange(_tuioCursor);
+        return sample.isActionRange(_tuioCursor);
+    }
+}
+
+bool Base::isRange(ofxTuioCursor * _tuioCursor) {
+    switch(index) {
+        case 1:
+            return sample.isInRange(_tuioCursor);
     }
 }
 

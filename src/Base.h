@@ -17,7 +17,8 @@ public:
     float getY();
     void draw();
     void update(ofxTuioObject * _tuioObject);
-    bool isInRange(ofxTuioCursor * _tuioCursor);
+    bool isActionRange(ofxTuioCursor * _tuioCursor);
+    bool isRange(ofxTuioCursor * _tuioCursor);
     void touchAction(ofxTuioCursor * _cursor);
     void destroy();
     ofxTuioObject getObject();

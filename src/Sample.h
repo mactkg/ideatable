@@ -12,7 +12,8 @@ public:
     ~Sample() {};
     void draw();
     void update(ofxTuioObject * _blob);
-    bool isInRange(ofxTuioCursor * _cursor);
+    bool isRange(ofxTuioCursor * _cursor);
+    bool isActionRange(ofxTuioCursor * _cursor);
     void touchAction(ofxTuioCursor * _cursor);
     float sumdist(float x,float y);
 };

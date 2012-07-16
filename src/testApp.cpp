@@ -127,8 +127,14 @@ void testApp::tuioAdded(ofxTuioCursor & tuioCursor) {
     cursors.insert(map<int,ofxTuioCursor>::value_type(tuioCursor.getFingerId()
                                                       ,&tuioCursor));
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
-        if((*obj_itr).second.isInRange(&tuioCursor))
-            (*obj_itr).second.touchAction(&tuioCursor);
+        if((*obj_itr).second.isRange(&tuioCursor)) {
+            if((*obj_itr).second.isActionRange(&tuioCursor))
+                (*obj_itr).second.touchAction(&tuioCursor);
+            else {
+                objLine l((*obj_itr).second,&tuioCursor);
+                lines.push_back(l);
+            }
+        }
     }
     log="New Cursor: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+
@@ -148,13 +154,16 @@ void testApp::tuioRemoved(ofxTuioCursor & tuioCursor) {
 }
 
 void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
+    bool lineflag=false;
     cursors[tuioCursor.getFingerId()].update(&tuioCursor);
     for(line_itr=lines.begin();line_itr!=lines.end();line_itr++) {
-        if((*line_itr).getCursorID()==tuioCursor.getFingerId())
+        if((*line_itr).getCursorID()==tuioCursor.getFingerId()){
             (*line_itr).update(&tuioCursor);
+            lineflag=true;
+        }
     }
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
-        if((*obj_itr).second.isInRange(&tuioCursor))
+        if((*obj_itr).second.isRange(&tuioCursor)) {
             (*obj_itr).second.touchAction(&tuioCursor);
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
