@@ -61,7 +61,7 @@ bool Base::isActionRange(ofxTuioCursor * _tuioCursor) {
 bool Base::isRange(ofxTuioCursor * _tuioCursor) {
     switch(index) {
         case 1:
-            return sample.isInRange(_tuioCursor);
+            return sample.isRange(_tuioCursor);
     }
 }
 

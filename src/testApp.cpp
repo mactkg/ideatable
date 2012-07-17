@@ -131,7 +131,7 @@ void testApp::tuioAdded(ofxTuioCursor & tuioCursor) {
             if((*obj_itr).second.isActionRange(&tuioCursor))
                 (*obj_itr).second.touchAction(&tuioCursor);
             else {
-                objLine l((*obj_itr).second,&tuioCursor);
+                objLine l(&(*obj_itr).second.getObject(),&tuioCursor);
                 lines.push_back(l);
             }
         }
@@ -165,6 +165,7 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
         if((*obj_itr).second.isRange(&tuioCursor)) {
             (*obj_itr).second.touchAction(&tuioCursor);
+        }
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+
