@@ -124,18 +124,17 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject) {
 }
 
 void testApp::tuioAdded(ofxTuioCursor & tuioCursor) {
-    cursors.insert(map<int,ofxTuioCursor>::value_type(tuioCursor.getFingerId()
-                                                      ,&tuioCursor));
+    int t=-1;
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
         if((*obj_itr).second.isRange(&tuioCursor)) {
-            if((*obj_itr).second.isActionRange(&tuioCursor))
+            if((*obj_itr).second.isActionRange(&tuioCursor)) {
                 (*obj_itr).second.touchAction(&tuioCursor);
-            else {
-                objLine l(&(*obj_itr).second.getObject(),&tuioCursor);
-                lines.push_back(l);
-            }
+            } else
+                t=(*obj_itr).second.getFiducialId();
         }
     }
+    prevStatus.insert(map<int,int>::value_type(tuioCursor.getFingerId(),
+                                               t));
     log="New Cursor: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+
         " Y: "+ofToString(tuioCursor.getY());
@@ -147,7 +146,7 @@ void testApp::tuioRemoved(ofxTuioCursor & tuioCursor) {
         if((*line_itr).getCursorID()==tuioCursor.getFingerId())
             lines.erase(line_itr);
     }
-    cursors.erase(tuioCursor.getFingerId());
+    prevStatus.erase(tuioCursor.getFingerId());
     log="Cursor Removed: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+
         " Y: "+ofToString(tuioCursor.getY());
@@ -155,7 +154,6 @@ void testApp::tuioRemoved(ofxTuioCursor & tuioCursor) {
 
 void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     bool lineflag=false;
-    cursors[tuioCursor.getFingerId()].update(&tuioCursor);
     for(line_itr=lines.begin();line_itr!=lines.end();line_itr++) {
         if((*line_itr).getCursorID()==tuioCursor.getFingerId()){
             (*line_itr).update(&tuioCursor);
@@ -164,6 +162,7 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     }
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
         if((*obj_itr).second.isRange(&tuioCursor)) {
+            if(lineflag)(*line_itr).lineEnd(&(*obj_itr).second.getObject());
             (*obj_itr).second.touchAction(&tuioCursor);
         }
     }

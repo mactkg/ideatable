@@ -33,7 +33,7 @@ public:
 private:
     map<int,Base> objects;
     map<int,Base>::iterator obj_itr;
-    map<int,ofxTuioCursor> cursors;
+    map<int,int> prevStatus;
     vector<objLine> lines;
     vector<objLine>::iterator line_itr;
     myTuioClient tuio;
