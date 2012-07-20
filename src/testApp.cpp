@@ -110,7 +110,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject) {
     }
     log="Object Removed: "+ofToString(tuioObject.getFiducialId())+
         " X: "+ofToString(tuioObject.getX())+
-        " Y: "+ofToString(tuioObject.getY());  
+        " Y: "+ofToString(tuioObject.getY());
 }
 
 void testApp::objectUpdated(ofxTuioObject & tuioObject) {

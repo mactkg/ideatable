@@ -129,6 +129,12 @@
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" />
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
+		<Unit filename="src\BGM.cpp">
+			<Option virtualFolder="src\Obj\BGM\" />
+		</Unit>
+		<Unit filename="src\BGM.h">
+			<Option virtualFolder="src\Obj\BGM\" />
+		</Unit>
 		<Unit filename="src\Base.cpp">
 			<Option virtualFolder="src\Obj\" />
 		</Unit>

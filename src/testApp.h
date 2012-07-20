@@ -30,6 +30,7 @@ public:
     void tuioAdded(ofxTuioCursor & tuioCursor);
     void tuioRemoved(ofxTuioCursor & tuioCursor);
     void tuioUpdated(ofxTuioCursor & tuioCursor);
+
 private:
     map<int,Base> objects;
     map<int,Base>::iterator obj_itr;
