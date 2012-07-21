@@ -3,7 +3,7 @@
 #pragma once
 #include "ofxTuio.h"
 #include "ofMain.h"
-#define SAMPLE_NUM 5
+#define BGM_NUM 5
 class BGM : public ofxTuioObject {
 private:
     float angle,vol;

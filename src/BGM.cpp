@@ -1,8 +1,6 @@
 #include "BGM.h"
 BGM::BGM(ofxTuioObject * _blob):ofxTuioObject(_blob) {
     vol=0.0;
-    angle=_blob->getAngle();
-    FID=_blob->getFiducialId();
     musicname="/sounds/"+ofToString(FID)+".mp3";    //If you want to listen some musics,
     music.loadSound(musicname);                     //you rename the *.mp3 to "markerID".mp3 and D&D into /bin/data/sounds/
     music.setMultiPlay(true);

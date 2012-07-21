@@ -3,11 +3,11 @@
 #include "ofxTuio.h"
 class Base {
 private:
+    ofxTuioObject o;
     //以下にオブジェクトを追加
     Sample sample;
+    BGM bgm;
     int index;
-    int FID;
-    float x,y;
 public:
     Base(ofxTuioObject * _tuioObject);
     Base(){};
