@@ -162,8 +162,10 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
     }
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
         if((*obj_itr).second.isRange(&tuioCursor)) {
-            if(lineflag)(*line_itr).lineEnd(&(*obj_itr).second.getObject());
-            (*obj_itr).second.touchAction(&tuioCursor);
+            if(lineflag)
+                (*line_itr).lineEnd(&(*obj_itr).second.getObject());
+            else if((*obj_itr).second.isActionRange(&tuioCursor)) 
+                (*obj_itr).second.touchAction(&tuioCursor);
         }
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
