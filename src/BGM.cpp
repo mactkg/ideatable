@@ -23,6 +23,14 @@ void BGM::update(ofxTuioObject * _tuioObject) {
     music.setVolume(vol);
 }
 
+bool BGM::isRange(ofxTuioCursor * _cursor){
+
+}
+
+bool BGM::isActionRange(ofxTuioCursor * _cursor){
+
+}
+
 void BGM::touchAction(ofxTuioCursor * _cursor){
 
 }
