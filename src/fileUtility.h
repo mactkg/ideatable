@@ -1,15 +1,8 @@
 #ifndef FILEUTILITY_H_INCLUDED
 #define FILEUTILITY_H_INCLUDED
+#include "ofMain.h"
+#include <string>
 #include <iostream>
-#include "string.h"
-string getFilePath(int _fid)
-{
-    string s;
-    ifstream f(ofToString(_fid).c_str());
-    if(!f) {
-        return "";
-    }
-    f>>s;
-    return s;
-};
+using namespace std;
+string getFilePath(int _fid);
 #endif // FILEUTILITY_H_INCLUDED
