@@ -1,17 +1,15 @@
 #ifndef FILEUTILITY_H_INCLUDED
 #define FILEUTILITY_H_INCLUDED
-#include "iostream.h"
+#include <iostream>
 #include "string.h"
-#include "boost/regex.hpp"
-#include "map.h"
 string getFilePath(int _fid)
 {
-    
-};
-
-map<string,string> getConfig(int _fid)
-{
-    map<string,string> elem;
-    
+    string s;
+    ifstream f(ofToString(_fid).c_str());
+    if(!f) {
+        return "";
+    }
+    f>>s;
+    return s;
 };
 #endif // FILEUTILITY_H_INCLUDED
