@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxTuio.h"
 #include "Base.h"
-#include "line.h"
+#include "line\line.h"
 #include "map"
 #include "string"
 class testApp : public ofBaseApp {
