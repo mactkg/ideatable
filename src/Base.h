@@ -6,6 +6,7 @@ private:
     ofxTuioObject o;
     //以下にオブジェクトを追加
     Sample sample;
+    PictureObj picture;
     BGM bgm;
     int index;
 public:

@@ -1,4 +1,5 @@
 #pragma once
-//ここにかいたヘッダファイルをついかしとく
+//かいたヘッダファイルをついか
 #include "Sample.h"
 #include "BGM.h"
+#include "picture.h"

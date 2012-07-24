@@ -2,23 +2,27 @@
 #ifndef PICTURE_H_INCLUDED
 #define PICTURE_H_INCLUDED
 #include "ofxTuio.h"
+#include "fileUtility.h"
 #include "ofMain.h"
-#include "string.h"
-#include <iostream>
+#include <string>
+#define PICTURE_NUM 10
 
 class PictureObj : public ofxTuioObject
 {
 private:
-    float sizeX,sizeY;
+    float sizeX,sizeY,default_angle;
     ofImage image;
     void setConfig(int fiducialId);
+    int image_mag;
 public:
     PictureObj() {};
     ~PictureObj() {};
     PictureObj(ofxTuioObject * _object);
     void draw();
     void update(ofxTuioObject * _object);
-    void touch(ofxTuioCursor * _cursor);
+    bool isActionRange(ofxTuioCursor * _cursor);
+    bool isRange(ofxTuioCursor * _cursor);
+    void touchAction(ofxTuioCursor * _cursor);
 };
 
 
