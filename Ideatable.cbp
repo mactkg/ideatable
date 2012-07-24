@@ -6,7 +6,7 @@
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="addons\;src\;src\Obj\;src\core\;src\Obj\sample\;src\communicate\;src\Obj\line\;src\Obj\picture\;src\Obj\BGM\;src\Obj\video\;src\Obj\Game\;" />
+		<Option virtualFolders="src\;src\Obj\;src\core\;src\core\line\;src\Obj\sample\;src\communicate\;src\Obj\picture\;src\Obj\BGM\;src\Obj\video\;" />
 		<Build>
 			<Target title="release">
 				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -147,6 +147,9 @@
 		<Unit filename="src\Sample.h">
 			<Option virtualFolder="src\Obj\sample\" />
 		</Unit>
+		<Unit filename="src\fileUtility.cpp">
+			<Option virtualFolder="src\core\" />
+		</Unit>
 		<Unit filename="src\fileUtility.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
@@ -154,10 +157,10 @@
 			<Option virtualFolder="src\core\" />
 		</Unit>
 		<Unit filename="src\line.cpp">
-			<Option virtualFolder="src\Obj\line\" />
+			<Option virtualFolder="src\core\line\" />
 		</Unit>
 		<Unit filename="src\line.h">
-			<Option virtualFolder="src\Obj\line\" />
+			<Option virtualFolder="src\core\line\" />
 		</Unit>
 		<Unit filename="src\main.cpp">
 			<Option virtualFolder="src\core\" />
@@ -173,6 +176,12 @@
 		</Unit>
 		<Unit filename="src\testApp.h">
 			<Option virtualFolder="src\core\" />
+		</Unit>
+		<Unit filename="src\video.cpp">
+			<Option virtualFolder="src\Obj\video\" />
+		</Unit>
+		<Unit filename="src\video.h">
+			<Option virtualFolder="src\Obj\video\" />
 		</Unit>
 		<Extensions>
 			<code_completion />
