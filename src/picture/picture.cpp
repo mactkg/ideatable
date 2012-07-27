@@ -30,6 +30,7 @@ void PictureObj::draw()
 
 void PictureObj::update(ofxTuioObject * _object)
 {
+    ofxTuioObject::update(_object);
     image_mag=(default_angle-getAngleDegrees())/360;//初期角度との角度差をが倍率に比例する
 }
 
