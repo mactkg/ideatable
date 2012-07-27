@@ -3,7 +3,7 @@
 #pragma once
 #include "ofxTuio.h"
 #include "ofMain.h"
-#include "../fileUtil/fileUtility.h"
+#include "../Util/Utility.h"
 #define BGM_NUM 5
 class BGM : public ofxTuioObject {
 private:

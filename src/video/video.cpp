@@ -1,9 +1,9 @@
 #include "video.h"
 VideoPlayer::VideoPlayer(ofxTuioObject * _blob):ofxTuioObject(_blob){
-    string filepath=getFilePath(this->getFiducialId());
+    string filepath="/video/"+getFilePath(this->getFiducialId());
     player.loadMovie(filepath);
     player.idleMovie();
-    player.setLoopState(OF_QT_LOOP_NONE);
+    player.setLoopState(OF_LOOP_NONE);
 }
 
 VideoPlayer::~VideoPlayer(){
@@ -19,11 +19,11 @@ void VideoPlayer::draw() {
 }
 
 bool VideoPlayer::isActionRange(ofxTuioCursor * _cursor) {
-
+    return false;
 }
 
 bool VideoPlayer::isRange(ofxTuioCursor * _cursor) {
-    
+    return false;
 }
 
 void VideoPlayer::touchAction(ofxTuioCursor * _cursor) {

@@ -2,7 +2,7 @@
 #define VIDEO_H_INCLUDED
 #include "ofMain.h"
 #include "ofxTuio.h"
-#include "../fileUtil/fileUtility.h"
+#include "../Util/Utility.h"
 class VideoPlayer : ofxTuioObject {
     public:
     VideoPlayer(ofxTuioObject * _blob);

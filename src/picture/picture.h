@@ -2,7 +2,7 @@
 #ifndef PICTURE_H_INCLUDED
 #define PICTURE_H_INCLUDED
 #include "ofxTuio.h"
-#include "../fileUtil/fileUtility.h"
+#include "../Util/Utility.h"
 #include "ofMain.h"
 #include <string>
 #define PICTURE_NUM 10
