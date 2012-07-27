@@ -6,7 +6,7 @@
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="src\;src\Obj\;src\core\;src\core\line\;src\Obj\sample\;src\communicate\;src\Obj\picture\;src\Obj\BGM\;src\Obj\video\;" />
+		<Option virtualFolders="src\;src\Obj\;src\core\;src\communicate\;src\Obj\sample\;src\Obj\video\;src\Obj\BGM\;src\Obj\picture\;src\core\line\;" />
 		<Build>
 			<Target title="release">
 				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -129,10 +129,10 @@
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" />
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
 		<Unit filename="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
-		<Unit filename="src\BGM.cpp">
+		<Unit filename="src\BGM\BGM.cpp">
 			<Option virtualFolder="src\Obj\BGM\" />
 		</Unit>
-		<Unit filename="src\BGM.h">
+		<Unit filename="src\BGM\BGM.h">
 			<Option virtualFolder="src\Obj\BGM\" />
 		</Unit>
 		<Unit filename="src\Base.cpp">
@@ -141,35 +141,35 @@
 		<Unit filename="src\Base.h">
 			<Option virtualFolder="src\Obj\" />
 		</Unit>
-		<Unit filename="src\Sample.cpp">
-			<Option virtualFolder="src\Obj\sample\" />
-		</Unit>
-		<Unit filename="src\Sample.h">
-			<Option virtualFolder="src\Obj\sample\" />
-		</Unit>
-		<Unit filename="src\fileUtility.cpp">
+		<Unit filename="src\Util\Utility.cpp">
 			<Option virtualFolder="src\core\" />
 		</Unit>
-		<Unit filename="src\fileUtility.h">
+		<Unit filename="src\Util\Utility.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
 		<Unit filename="src\index.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
-		<Unit filename="src\line.cpp">
+		<Unit filename="src\line\line.cpp">
 			<Option virtualFolder="src\core\line\" />
 		</Unit>
-		<Unit filename="src\line.h">
+		<Unit filename="src\line\line.h">
 			<Option virtualFolder="src\core\line\" />
 		</Unit>
 		<Unit filename="src\main.cpp">
 			<Option virtualFolder="src\core\" />
 		</Unit>
-		<Unit filename="src\picture.cpp">
+		<Unit filename="src\picture\picture.cpp">
 			<Option virtualFolder="src\Obj\picture\" />
 		</Unit>
-		<Unit filename="src\picture.h">
+		<Unit filename="src\picture\picture.h">
 			<Option virtualFolder="src\Obj\picture\" />
+		</Unit>
+		<Unit filename="src\sample\Sample.cpp">
+			<Option virtualFolder="src\Obj\sample\" />
+		</Unit>
+		<Unit filename="src\sample\Sample.h">
+			<Option virtualFolder="src\Obj\sample\" />
 		</Unit>
 		<Unit filename="src\testApp.cpp">
 			<Option virtualFolder="src\core\" />
@@ -177,10 +177,10 @@
 		<Unit filename="src\testApp.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
-		<Unit filename="src\video.cpp">
+		<Unit filename="src\video\video.cpp">
 			<Option virtualFolder="src\Obj\video\" />
 		</Unit>
-		<Unit filename="src\video.h">
+		<Unit filename="src\video\video.h">
 			<Option virtualFolder="src\Obj\video\" />
 		</Unit>
 		<Extensions>
