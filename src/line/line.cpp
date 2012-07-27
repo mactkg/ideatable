@@ -38,8 +38,10 @@ void objLine::update(ofxTuioObject * _object, ofxTuioCursor *_cursor) {
 }
 
 void objLine::lineEnd(ofxTuioObject * _object) {
-    to.update(_object);
-    isEnd=true;
+    if(from.getFiducialId()!=_object->getFiducialId()){
+        to.update(_object);
+        isEnd=true;
+    }
 }
 
 int objLine::getCursorID() {

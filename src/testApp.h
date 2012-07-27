@@ -6,6 +6,7 @@
 #include "line\line.h"
 #include "map"
 #include "string"
+
 class testApp : public ofBaseApp {
 
 public:

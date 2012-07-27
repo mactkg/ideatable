@@ -153,20 +153,25 @@ void testApp::tuioRemoved(ofxTuioCursor & tuioCursor) {
 }
 
 void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
-    bool lineflag=false;
     for(line_itr=lines.begin();line_itr!=lines.end();line_itr++) {
         if((*line_itr).getCursorID()==tuioCursor.getFingerId()){
             (*line_itr).update(&tuioCursor);
-            lineflag=true;
         }
     }
     for(obj_itr=objects.begin();obj_itr!=objects.end();obj_itr++) {
         if((*obj_itr).second.isRange(&tuioCursor)) {
-            if(lineflag)
+            if(prevStatus[tuioCursor.getFingerId()]==-1)
                 (*line_itr).lineEnd(&(*obj_itr).second.getObject());
             else if((*obj_itr).second.isActionRange(&tuioCursor)) 
                 (*obj_itr).second.touchAction(&tuioCursor);
+            prevStatus[tuioCursor.getFingerId()]=
+                (*obj_itr).second.getFiducialId();
         }
+    }
+    if(prevStatus[tuioCursor.getFingerId()]==-1) {
+        objLine l(&objects[prevStatus[tuioCursor.getFingerId()]].getObject(),
+                  &tuioCursor);
+        lines.push_back(l);
     }
     log="Cursor Updated: "+ofToString(tuioCursor.getFingerId())+
         " X: "+ofToString(tuioCursor.getX())+

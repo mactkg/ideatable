@@ -22,6 +22,5 @@ public:
     bool isActionRange(ofxTuioCursor * _tuioCursor);
     bool isRange(ofxTuioCursor * _tuioCursor);
     void touchAction(ofxTuioCursor * _cursor);
-    void destroy();
     ofxTuioObject getObject();
 };
