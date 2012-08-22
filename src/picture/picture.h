@@ -5,13 +5,11 @@
 #include "../Util/Utility.h"
 #include "ofMain.h"
 #include <string>
-#define PICTURE_NUM 10
 
 class PictureObj : public ofxTuioObject
 {
 private:
     float sizeX,sizeY,default_angle;
-    ofImage image;
     void setConfig(int fiducialId);
     int image_mag;
 public:

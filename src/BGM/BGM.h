@@ -4,7 +4,6 @@
 #include "ofxTuio.h"
 #include "ofMain.h"
 #include "../Util/Utility.h"
-#define BGM_NUM 5
 class BGM : public ofxTuioObject {
 private:
     float angle,vol,playtime;

@@ -1,31 +1,26 @@
 #include "video.h"
-VideoPlayer::VideoPlayer(ofxTuioObject * _blob):ofxTuioObject(_blob){
-    string filepath="/video/"+getFilePath(this->getFiducialId());
-    player.loadMovie(filepath);
-    player.idleMovie();
-    player.setLoopState(OF_LOOP_NONE);
+VideoObj::VideoObj()(ofxTuioObject * _blob):ofxTuioObject(_blob){
 }
 
-VideoPlayer::~VideoPlayer(){
-    player.closeMovie();
+VideoObj::~VideoObj(){
 }
 
-void VideoPlayer::update(ofxTuioObject * _object) {
+void VideoObj::update(ofxTuioObject * _object) {
     ofxTuioObject::update(_object);
 }
 
-void VideoPlayer::draw() {
+void VideoObj::draw() {
 
 }
 
-bool VideoPlayer::isActionRange(ofxTuioCursor * _cursor) {
+bool VideoObj::isActionRange(ofxTuioCursor * _cursor) {
     return false;
 }
 
-bool VideoPlayer::isRange(ofxTuioCursor * _cursor) {
+bool VideoObj::isRange(ofxTuioCursor * _cursor) {
     return false;
 }
 
-void VideoPlayer::touchAction(ofxTuioCursor * _cursor) {
+void VideoObj::touchAction(ofxTuioCursor * _cursor) {
 
 }

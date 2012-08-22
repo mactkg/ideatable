@@ -6,7 +6,7 @@
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="src\;src\Obj\;src\core\;src\communicate\;src\Obj\sample\;src\Obj\video\;src\Obj\BGM\;src\Obj\picture\;src\core\line\;" />
+		<Option virtualFolders="src\;src\Obj\;src\core\;src\communicate\;src\Obj\video\;src\Obj\BGM\;src\Obj\picture\;src\core\line\;src\Obj\Idea\;" />
 		<Build>
 			<Target title="release">
 				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -34,6 +34,7 @@
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DDEBUG" />
 				</Compiler>
 				<Linker>
 					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworksDebug.lib" />
@@ -135,12 +136,6 @@
 		<Unit filename="src\BGM\BGM.h">
 			<Option virtualFolder="src\Obj\BGM\" />
 		</Unit>
-		<Unit filename="src\Base.cpp">
-			<Option virtualFolder="src\Obj\" />
-		</Unit>
-		<Unit filename="src\Base.h">
-			<Option virtualFolder="src\Obj\" />
-		</Unit>
 		<Unit filename="src\Util\Utility.cpp">
 			<Option virtualFolder="src\core\" />
 		</Unit>
@@ -164,12 +159,6 @@
 		</Unit>
 		<Unit filename="src\picture\picture.h">
 			<Option virtualFolder="src\Obj\picture\" />
-		</Unit>
-		<Unit filename="src\sample\Sample.cpp">
-			<Option virtualFolder="src\Obj\sample\" />
-		</Unit>
-		<Unit filename="src\sample\Sample.h">
-			<Option virtualFolder="src\Obj\sample\" />
 		</Unit>
 		<Unit filename="src\testApp.cpp">
 			<Option virtualFolder="src\core\" />
