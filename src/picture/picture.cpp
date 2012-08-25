@@ -9,23 +9,8 @@ PictureObj::PictureObj(ofxTuioObject * _object):ofxTuioObject(_object)
 /*idごとのコンフィグファイルを読み込み、データ抽出.
 コンフィグファイルはbin/data/image/以下においておこう!!
 */
-void PictureObj::setConfig(int fiducialId)
-{
-    image.loadImage("image/"+getFilePath(fiducialId));
-    sizeX=image.width;
-    sizeY=image.height;
-}
-
-void PictureObj::draw()
-{
-    ofSetColor(255,255,255);
-    glPushMatrix();
-        glTranslatef(this->getX()*ofGetWidth()-(sizeX/2),
-                 this->getY()*ofGetHeight()+130,
-                 0.0);
-        glRotatef(this->getAngleDegrees(),0.0,0.0,1.0);
-        image.draw(0,0,sizeX*image_mag,sizeY*image_mag);
-    glPopMatrix();
+void PictureObj::setConfig(int fiducialId){
+    
 }
 
 void PictureObj::update(ofxTuioObject * _object)

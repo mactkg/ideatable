@@ -7,9 +7,7 @@
 class BGM : public ofxTuioObject {
 private:
     float angle,vol,playtime;
-    float *spectrum;
-    string musicname;
-    ofSoundPlayer music;
+    float spectrum;
 public:
     BGM(ofxTuioObject * _blob);
     BGM() {};
@@ -19,5 +17,7 @@ public:
     bool isRange(ofxTuioCursor * _cursor);
     bool isActionRange(ofxTuioCursor * _cursor);
     void touchAction(ofxTuioCursor * _cursor);
+    float getVolume();
+    void setSpectrum(float * spectrum);
 };
 #endif // BGM_H_INCLUDED

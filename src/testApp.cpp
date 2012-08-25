@@ -20,22 +20,22 @@ void testApp::setup() {
     int i;
     //init IdeaObjects
     for(i=0;i<IDEA_NUM;i++){
-        ideaIndex[i]=-1
+        idea_Index[i]=-1;
     }
     //init soundplayer
     for(i=0;i<BGM_NUM;i++){
         soundIndex[i]=-1;
-        sounds[i].loadSound("sound/"+ofToString(i)+".mp3")
+        sounds[i].loadSound("sound/"+ofToString(i)+".mp3");
     }
     //init ImageLoader
-    for(i=0;i<PICTURE_NUM;i++){
+    for(i=0;i<IMAGE_NUM;i++){
         imageIndex[i]=-1;
         images[i].loadImage("image/"+ofToString(i)+".jpg");
     }
     //init Videos
     for(i=0;i<VIDEO_NUM;i++){
         videoIndex[i]=-1;
-        vplayers[i].loadMovie("videos/"+ofToString(i)+".mp4")
+        vplayers[i].loadMovie("videos/"+ofToString(i)+".mp4");
     }
     //init main index
     
@@ -51,6 +51,7 @@ void testApp::draw(){
     ofEnableAlphaBlending();
     ofSetColor(0,0,0,50);
     #ifdef DEBUG
+    ofSetColor(255,255,255);
     ofDrawBitmapString(log,20,20);
     #endif
     ofDisableAlphaBlending();
@@ -62,37 +63,39 @@ void testApp::setType(int fid,int type){
 }
 
 void testApp::setType(int start,int end,int type){
-    for(;start<=end,start++){
-        changeIndex()
+    for(;start<=end;start++){
+        changeIndex(start,type);
     }
 }
 //--------------------------------------------------------------
 void testApp::changeIndex(int fid,int type){
     int i,max;
+    int arrays[];
     bool changeflag=false;
     if(type==TYPE_IDEA){
-        #define TYPE "idea"
+        arrays=idea_Index;
         max=IDEA_NUM;
     }else if(type==TYPE_IMAGE){
-        #define TYPE "image"
+        arrays=imageIndex;
         max=IMAGE_NUM;
     }else if(type==TYPE_BGM){
-        #define TYPE "sound"
+        arrays=soundIndex;
         max=BGM_NUM;
     }else if(type==TYPE_MOVIE){
-        #define TYPE "video"
+        arrays=videoIndex;
         max=VIDEO_NUM;
     }
     for(i=0;i<max||changeflag;i++){
-        if(INDEX(TYPE,i)==-1){
-            INDEX(TYPE,i)=fid;
+        if(arrays[i]==-1){
+            arrays[i]=fid;
             changeflag=true;
-        }else if(INDEX(TYPE,i)==fid)
+        }else if(arrays[i]==fid)
             return;
     }
+    
     if(!changeflag){
-        index[INDEX(TYPE,max-1)]=-1;
-        INDEX(TYPE,max-1)=fid;
+        index[arrays[max-1]]=-1;
+        arrays[max-1]=fid;
         ofLogWarning()<<"object index is overwritting!";
     }
 }
@@ -162,7 +165,7 @@ void testApp::dragEvent(ofDragInfo dragInfo) {
 void testApp::objectAdded(ofxTuioObject & tuioObject) {
     objects.insert(map<int,ofxTuioObject>::value_type(tuioObject.getFiducialId(),
                    &tuioObject));
-    #define DEBUG
+    #ifdef DEBUG
     log="New Object: "+ofToString(tuioObject.getFiducialId())+
         " X: "+ofToString(tuioObject.getX())+
         " Y: "+ofToString(tuioObject.getY());
