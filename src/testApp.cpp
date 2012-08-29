@@ -11,13 +11,16 @@ void testApp::setup() {
     //Set framerate to 60 fps
     ofSetFrameRate(60);
     //Background color 
-    ofBackground(0,0,0);
+    ofBackground(255,255,255);
     //tuio client use 3333 port
     tuio.start(3333);
     log="";
-    //init index
-    memset(types,-1,100);
     int i;
+    //init whole index
+    for(i=0;i<100;i++){
+        types[i]=-1;
+        isActive[i]=false;
+    }
     //init IdeaObjects
     for(i=0;i<IDEA_NUM;i++){
         idea_Index[i]=-1;
@@ -25,20 +28,22 @@ void testApp::setup() {
     //init soundplayer
     for(i=0;i<BGM_NUM;i++){
         soundIndex[i]=-1;
-        sounds[i].loadSound("sound/"+ofToString(i)+".mp3");
+        sounds[i].loadSound("sounds/"+ofToString(i)+".mp3");
+        sounds[i].setLoop(true);
+        sounds[i].setMultiPlay(true);
     }
     //init ImageLoader
     for(i=0;i<IMAGE_NUM;i++){
         imageIndex[i]=-1;
-        images[i].loadImage("image/"+ofToString(i)+".jpg");
+        images[i].loadImage("image/"+ofToString(i)+".png");
     }
     //init Videos
     for(i=0;i<VIDEO_NUM;i++){
         videoIndex[i]=-1;
         vplayers[i].loadMovie("videos/"+ofToString(i)+".mp4");
     }
-    //init main index
-    
+    setType(0,TYPE_BGM);
+    setType(1,TYPE_IMAGE);
 }
 //--------------------------------------------------------------
 void testApp::update() {
@@ -49,7 +54,25 @@ void testApp::update() {
 //--------------------------------------------------------------
 void testApp::draw(){
     ofEnableAlphaBlending();
-    ofSetColor(0,0,0,50);
+    int i;
+    for(i=0;i<IMAGE_NUM;i++){
+        if(imageIndex[i]!=-1&&isActive[imageIndex[i]]){
+        //images[i].loadImage("image/1.png");
+        images[i].draw(imageobjs[i].getX()*ofGetWidth(),
+                       imageobjs[i].getY()*ofGetHeight(),
+                       imageobjs[i].getHeight(),imageobjs[i].getWidth());
+        ofLogWarning()<<"drawing1";
+        }
+        
+    }
+    for(i=0;i<BGM_NUM;i++){
+        if(soundIndex[i]!=-1&&isActive[soundIndex[i]]){
+            if(!sounds[i].getIsPlaying())
+                sounds[i].play();
+            bgms[i].setSpectrum(ofSoundGetSpectrum(1));
+            bgms[i].draw();
+        }
+    }
     #ifdef DEBUG
     ofSetColor(255,255,255);
     ofDrawBitmapString(log,20,20);
@@ -70,42 +93,68 @@ void testApp::setType(int start,int end,int type){
 //--------------------------------------------------------------
 void testApp::changeIndex(int fid,int type){
     int i,max;
-    int arrays[];
-    bool changeflag=false;
-    if(type==TYPE_IDEA){
-        arrays=idea_Index;
-        max=IDEA_NUM;
-    }else if(type==TYPE_IMAGE){
-        arrays=imageIndex;
-        max=IMAGE_NUM;
-    }else if(type==TYPE_BGM){
-        arrays=soundIndex;
-        max=BGM_NUM;
-    }else if(type==TYPE_MOVIE){
-        arrays=videoIndex;
-        max=VIDEO_NUM;
+    int *array;
+    bool changeflag=false,warnflag=false;
+    if(types[fid]!=-1){
+        array=getIndex(fid);
+        while(0){
+            if(array[i]==fid){
+                array[i]=-1;
+                break;
+            }
+        }
+        warnflag=true;
     }
-    for(i=0;i<max||changeflag;i++){
-        if(arrays[i]==-1){
-            arrays[i]=fid;
+    types[fid]=type;
+    switch(type){
+    case TYPE_IDEA:
+        array=idea_Index;max=IDEA_NUM;break;
+    case TYPE_VIDEO:
+        array=videoIndex;max=VIDEO_NUM;break;
+    case TYPE_BGM:
+        array=soundIndex;max=BGM_NUM;break;
+    case TYPE_IMAGE:
+        array=imageIndex;max=IMAGE_NUM;break;
+    }
+    for(i=0;i<max;i++){
+        if(array[i]==-1){
+            array[i]=fid;
             changeflag=true;
-        }else if(arrays[i]==fid)
-            return;
+            break;
+        }else if(array[i]==fid)
+            break;
     }
     
     if(!changeflag){
-        index[arrays[max-1]]=-1;
-        arrays[max-1]=fid;
-        ofLogWarning()<<"object index is overwritting!";
+        types[array[max-1]]=-1;
+        array[max-1]=fid;
+        warnflag=true;
     }
+    if(warnflag)ofLogWarning()<<"Object Index is overwritting!";
 }
+//--------------------------------------------------------------
+int* testApp::getIndex(int fid){
+    switch(types[fid]){
+    case TYPE_IDEA:
+        return idea_Index;
+    case TYPE_IMAGE:
+        return imageIndex;
+    case TYPE_VIDEO:
+        return videoIndex;
+    case TYPE_BGM:
+        return soundIndex;
+    }
+    ofLogWarning()<<"object not found:"<<fid;
+    return NULL;
+}
+
+
 //--------------------------------------------------------------
 void testApp::keyPressed(int key) {
     #ifdef DEBUG
     log="Key Pressed : keycode:"+ofToString(key);
     #endif
 }
-
 //--------------------------------------------------------------
 void testApp::keyReleased(int key) {
     #ifdef DEBUG
@@ -165,6 +214,7 @@ void testApp::dragEvent(ofDragInfo dragInfo) {
 void testApp::objectAdded(ofxTuioObject & tuioObject) {
     objects.insert(map<int,ofxTuioObject>::value_type(tuioObject.getFiducialId(),
                    &tuioObject));
+    isActive[tuioObject.getFiducialId()]=true;
     #ifdef DEBUG
     log="New Object: "+ofToString(tuioObject.getFiducialId())+
         " X: "+ofToString(tuioObject.getX())+
@@ -174,7 +224,22 @@ void testApp::objectAdded(ofxTuioObject & tuioObject) {
 }
 
 void testApp::objectRemoved(ofxTuioObject & tuioObject) {
+    int i;
     objects.erase(tuioObject.getFiducialId());
+    isActive[tuioObject.getFiducialId()]=false;
+    if(types[tuioObject.getFiducialId()]==TYPE_BGM){
+        for(i=0;i<BGM_NUM;i++){
+            if(soundIndex[i]==tuioObject.getFiducialId())
+                if(sounds[i].getIsPlaying())
+                    sounds[i].stop();
+        }
+    }else if(types[tuioObject.getFiducialId()]==TYPE_VIDEO){
+        for(i=0;i<VIDEO_NUM;i++){
+            if(videoIndex[i]==tuioObject.getFiducialId())
+                if(vplayers[i].isPlaying())
+                    vplayers[i].closeMovie();
+        }
+    }
     for(line_itr=lines.begin();line_itr!=lines.end();++line_itr){
         if((*line_itr).getFromID()==tuioObject.getFiducialId()||
            (*line_itr).getToID()==tuioObject.getFiducialId()){
@@ -193,6 +258,28 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject) {
 //call when TuioObject is moved
 void testApp::objectUpdated(ofxTuioObject & tuioObject) {
     //TODO update objects corresponding to tuioObject's FiducialID
+    int i=0,max,*array=getIndex(tuioObject.getFiducialId());
+    if(array==NULL)return;
+    while(0){
+        if(array[i]==tuioObject.getFiducialId())
+            break;
+        i++;
+    }
+    switch(types[tuioObject.getFiducialId()]){
+    case TYPE_IDEA:
+        ideas[i].update(&tuioObject);
+        break;
+    case TYPE_VIDEO:
+        videos[i].update(&tuioObject);
+        break;
+    case TYPE_BGM:
+        bgms[i].update(&tuioObject);
+        break;
+    case TYPE_IMAGE:
+        imageobjs[i].update(&tuioObject);
+        ofLogWarning()<<"image update";
+        break;
+    }
     for(line_itr=lines.begin();line_itr!=lines.end();line_itr++) {
         (*line_itr).update(&tuioObject);
     }

@@ -5,15 +5,17 @@
 #include "../Util/Utility.h"
 #include "ofMain.h"
 #include <string>
+//default size is 50*50
+#define DEFAULT_IMAGE_WIDTH 50
+#define DEFAULT_IMAGE_HEIGHT 50
 
 class PictureObj : public ofxTuioObject
 {
 private:
-    float sizeX,sizeY,default_angle;
-    void setConfig(int fiducialId);
+    float width,height,default_angle;
     int image_mag;
 public:
-    PictureObj() {};
+    PictureObj();
     ~PictureObj() {};
     PictureObj(ofxTuioObject * _object);
     void draw();
@@ -21,6 +23,8 @@ public:
     bool isActionRange(ofxTuioCursor * _cursor);
     bool isRange(ofxTuioCursor * _cursor);
     void touchAction(ofxTuioCursor * _cursor);
+    float getWidth();
+    float getHeight();
 };
 
 

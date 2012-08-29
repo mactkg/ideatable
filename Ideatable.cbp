@@ -142,8 +142,11 @@
 		<Unit filename="src\Util\Utility.h">
 			<Option virtualFolder="src\core\" />
 		</Unit>
-		<Unit filename="src\index.h">
-			<Option virtualFolder="src\core\" />
+		<Unit filename="src\idea\idea.cpp">
+			<Option virtualFolder="src\Obj\Idea\" />
+		</Unit>
+		<Unit filename="src\idea\idea.h">
+			<Option virtualFolder="src\Obj\Idea\" />
 		</Unit>
 		<Unit filename="src\line\line.cpp">
 			<Option virtualFolder="src\core\line\" />
@@ -153,6 +156,9 @@
 		</Unit>
 		<Unit filename="src\main.cpp">
 			<Option virtualFolder="src\core\" />
+		</Unit>
+		<Unit filename="src\objects.h">
+			<Option virtualFolder="src\Obj\" />
 		</Unit>
 		<Unit filename="src\picture\picture.cpp">
 			<Option virtualFolder="src\Obj\picture\" />

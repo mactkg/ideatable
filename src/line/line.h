@@ -1,7 +1,6 @@
 #ifndef LINE_H_INCLUDED
 #define LINE_H_INCLUDED
 #include "ofxTuio.h"
-#include "../Base.h"
 //オブジェクトとオブジェクトをつなぐ名状しがたいパスのようなもの.h
 class objLine
 {
