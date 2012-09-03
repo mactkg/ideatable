@@ -42,8 +42,18 @@ void testApp::setup() {
         videoIndex[i]=-1;
         vplayers[i].loadMovie("videos/"+ofToString(i)+".mp4");
     }
+    //fix
     setType(0,TYPE_BGM);
     setType(1,TYPE_IMAGE);
+        ofSoundStreamSetup(0,1,this);
+    // we don't want to be running to fast <-サンプル丸パクリ
+    ofSetVerticalSync(true);
+    ofSetFrameRate(60);
+
+    //create the socket and set to send to 127.0.0.1:11999　<-サンプル丸パクリ
+    udpConnection.Create();
+    udpConnection.Connect("127.0.0.1",11999);
+    udpConnection.SetNonBlocking(true);
 }
 //--------------------------------------------------------------
 void testApp::update() {
@@ -71,6 +81,10 @@ void testApp::draw(){
                 sounds[i].play();
             bgms[i].setSpectrum(ofSoundGetSpectrum(1));
             bgms[i].draw();
+        }
+    }
+    for(i=0;i<VIDEO_NUM;i++){
+        if(videoIndex[i]!=-1&&isActive[videoIndex[i]]){
         }
     }
     #ifdef DEBUG
@@ -326,4 +340,11 @@ void testApp::tuioUpdated(ofxTuioCursor & tuioCursor) {
         " Y: "+ofToString(tuioCursor.getY());
     ofLog()<<log;
     #endif
+}
+void testApp::audioReceived(float * input , int bufferSize, int nChannels){
+    string message="";
+    for (int i=0; i < bufferSize; i++){
+        message+=ofToString(input[i])+"|";
+    }
+    int sent = udpConnection.Send(message.c_str(),message.length());
 }

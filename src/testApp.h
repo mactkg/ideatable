@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxTuio.h"
+#include "ofxNetwork.h"
 #include "objects.h"
 #include "map"
 #include "string"
@@ -51,6 +52,9 @@ public:
     void tuioRemoved(ofxTuioCursor & tuioCursor);
     void tuioUpdated(ofxTuioCursor & tuioCursor);
 
+    void audioReceived(float * input , int bufferSize, int nChannels);
+    //UDP connection
+    ofxUDPManager udpConnection;
 private:
     int types[100]; //Type Index(video,idea,bgm,image etc...)
     bool isActive[100];

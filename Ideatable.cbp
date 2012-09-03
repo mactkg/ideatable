@@ -72,6 +72,7 @@
 			<Add directory="..\..\..\addons\ofxOsc\libs\oscpack\include\ip" />
 			<Add directory="..\..\..\addons\ofxOsc\libs\oscpack\include\osc" />
 			<Add directory="..\..\..\addons\ofxTuio\src" />
+			<Add directory="..\..\..\addons\ofxNetwork\src" />
 		</Compiler>
 		<Linker>
 			<Add option="../../../addons/ofxOsc/libs/oscpack/lib/win_cb/oscpack.a" />
@@ -114,6 +115,15 @@
 			<Add after='cmd /c if not exist &quot;$(PROJECT_DIR)bin/data&quot; mkdir &quot;$(PROJECT_DIR)bin/data&quot;' />
 			<Mode after="always" />
 		</ExtraCommands>
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxNetwork.h" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxTCPClient.h" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxTCPManager.h" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxTCPServer.h" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxUDPManager.h" />
 		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
 		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
 		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
