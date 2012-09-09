@@ -46,8 +46,9 @@ void testApp::setup() {
     setType(0,TYPE_BGM);
     setType(1,TYPE_IMAGE);
         ofSoundStreamSetup(0,1,this);
-    // we don't want to be running to fast <-サンプル丸パクリ
+    //グラボとの垂直信号を同期してチラツキを抑える 
     ofSetVerticalSync(true);
+    //set this app's framerate to 60[fps]
     ofSetFrameRate(60);
 
     //create the socket and set to send to 127.0.0.1:11999　<-サンプル丸パクリ
